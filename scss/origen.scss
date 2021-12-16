@@ -1,0 +1,209 @@
+/* Esto es un bloque de comentario */
+// Esto es un comentario de linea 
+
+
+// IMPORTACION
+@import "bs_scss/bootstrap.scss";
+@import "bem";
+@import "tipografia";
+@import "reseteo";
+@import "responsive";
+@import "colores";
+
+// VARIABLES
+// $variable: valor
+$rojo: purple; // valor unico 
+$rojo: blue !default;  
+
+
+/* Esto es estilos CSS PURO **** */
+
+.bg-pink {
+   background-color: pink;
+}
+
+main {
+   /*margin: 50px;*/
+   color: white;
+}
+
+body{
+   background-color: rgb(196, 181, 181);
+   font-family: 'Mochiy Pop One', sans-serif;
+ //  background-image: url('https://codetheweb.blog/assets/img/posts/style-a-navigation-bar-css/background.jpg');
+ //  background-size: cover;
+}
+
+/*
+div {
+    width: 100px;
+    height: 100px;
+    background-color: pink;
+    padding: 15px;
+ }
+ 
+ div p {
+    font-size: 20px;
+    color: white;
+    font-family: Arial, sans-serif;
+ }
+
+*/
+ $ancho: 1024px;
+
+ section{
+    width: $ancho;
+    article {
+       width: $ancho / 2;
+       p {
+          width: ($ancho/2) - 20;
+       }
+    }
+ }
+
+ main{
+    width: $ancho *2;
+ } 
+
+ .blackText{
+   color: black;
+}
+
+ /* CONDICIONALES 
+ 1er valor == 2do valor / es verdadera si es igual
+ 1er valor != 2do valor / es verdadera si es distinto 
+ 1er valor > 2do valor / es verdadera si es mayor
+ 1er valor < 2do valor / es verdadera si es menor 
+ */
+ 
+ p {
+   /*1er condicional*/
+   @if 1+2  == 3 {
+      color: #590d0d;
+     }
+   }
+ 
+ $mobile: 578px;
+ $tablet: 992px;
+ $desktop: 1200px;
+ /* 2do condicional */
+ div {
+   @if $ancho == $mobile {
+   color: blue;
+ } @else if $ancho == $tablet {
+   color: red;
+ } @else if $ancho == $desktop {
+   color: green;
+ }
+ @else {
+   color: black;
+ }
+ }
+ 
+
+ // 2do ejemplo 
+ $desktop: 1440px;
+ $tablet: 720;
+ $mobile: 480;
+
+ div{
+    @if $ancho == $desktop {
+       background-color: red;
+    }
+    @else if $ancho == $tablet {
+       background-color: green;
+    }
+    @else if $ancho == $mobile {
+       background-color: blue;
+    }
+    @else {
+       background-color: white;
+    }
+ }
+
+
+ /* bucle
+ @for $var from inicio to fin {
+      /declaro el bloque que se repita 
+ } */
+@for $titulo from 1 through 6 {
+   // bloque que se repite
+   h#{$titulo}{
+      font-size: 2.5rem / $titulo;
+   }
+   .clase-#{$titulo}{
+      width: ($ancho/2) + $titulo;
+   }
+}
+
+/***** 
+EACH - LISTAS 
+@each $var in lista {
+   //b;bloque que se repite
+   le pueden poner el nombre que quieran
+}
+*****/
+@each $lista in foto_uno, foto_dos, foto_tres, perro, delfin {
+   .#{$lista} {
+      background-color: white;
+      //background-image: ;
+   }
+}
+/*ejemplo 2 */
+@each $secciones in body, div, aside, section, article, footer {
+   #{$secciones} {
+   background-color: lightgray;
+   }
+}
+
+/********
+MAPS
+******/
+$colores:(
+/* clave:   valor */
+   twitter: aqua,
+   facebook:  blue, 
+   mail: orange, 
+   instagram: purple, 
+   youtube: red, 
+   snapchat: yellow, 
+   linkedin: rgba(110, 110, 182, 0.363),
+   discord: rgba(36, 11, 36, 0.479)
+);
+
+//MAPS con each 
+@each $nombre, $color in $colores {
+   .boton-#{$nombre} {
+      background-color: $color;
+      border: $color;
+   }
+}
+
+
+/* EXTENDS */
+.redsocial {
+   border: 1px red;
+   background-color: rgb(240, 230, 230);
+   width: 100px;
+   height: 50px;
+   padding: 10px;
+   font-size: 15px;
+}
+.redsocial--nueva{
+   @extend .redsocial;
+   border: rgba(93, 93, 170, 0.623);
+}
+
+/* MIXINS */
+// armo una estructura y luego la reutilizo 
+@mixin tamanio($anchura, $altura, $texto) {
+   width: $anchura;
+   height: $altura;
+   font-size: $texto;
+}
+.caja{ 
+   @include tamanio(500px, 200px, 1.25rem);
+}
+.caja--dos{ 
+   @include tamanio(700px, 400px, 1.5rem);
+}

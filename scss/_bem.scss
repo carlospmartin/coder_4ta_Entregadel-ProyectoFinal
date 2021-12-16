@@ -1,0 +1,113 @@
+/******************
+Metodologia BEM
+BLOQUE
+ELEMENTO
+MODIFICADOR
+*******************************/
+
+/* BLOQUE = padre */
+.caja {
+
+}
+
+/* ELEMENTO = hijo */
+.caja__mediana  {
+    
+}
+
+/* MODIFICADOR - al bloque o al elemento*/
+
+.caja--azul {
+
+}
+.caja__mediana--azul {
+
+}
+
+/* METODOLOGIA de BEM */
+/* BLOQUE*/
+.caja {
+    width: 500px;
+    display: flex;
+  }
+.footer {
+    background-color: black;
+    height: 50px;
+  }
+.header {
+    font-size: 21px;
+  }
+.menu {
+    width: 100%;
+  }
+/* ELEMENTO - hijo = __*/
+.caja__lateral {
+    width: 20%;
+  }
+  /* Modificador = -- */
+.caja--azul {
+    border: solid 10px blue;
+  }
+.caja__lateral--rojo {
+    border: solid 5px red;
+  }
+  
+
+  
+  /* Ejemplo 2 BEM*/
+  /* Block = padre */
+  .btn {
+    text-decoration: none;
+    background-color: white;
+    color: #888;
+    border-radius: 5px;
+    display: inline-block;
+    margin: 10px;
+    font-size: 18px;
+    text-transform: uppercase;
+    font-weight: 600;
+    padding: 10px 5px;
+  }
+  
+  /* Element = hijo */
+  .btn__price {
+    background-color: white;
+    color: #fff;
+    padding-right: 12px;
+    padding-left: 12px;
+    margin-right: -10px; /* realign button text padding */
+    font-weight: 600;
+    background-color: #333;
+    opacity: 0.4;
+    border-radius: 5px 0 0 5px;
+  }
+  /* Element */
+  .btn__text {
+    padding: 0 10px;
+    border-radius: 0 5px 5px 0;
+  }
+  /* Modifier */
+  .btn--big {
+    font-size: 28px;
+    padding: 10px;
+    font-weight: 400;
+  }
+  /* Modifier */
+  .btn--blue {
+    border-color: #0074d9;
+    color: white;
+    background-color: #0074d9;
+  }
+  /* Modifier */
+  .btn--orange {
+    border-color: #ff4136;
+    color: white;
+    background-color: #ff4136;
+  }
+  /* Modifier */
+  .btn--green {
+    border-color: #3d9970;
+    color: white;
+    background-color: #3d9970;
+  }
+  
